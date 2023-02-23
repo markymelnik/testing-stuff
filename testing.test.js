@@ -36,7 +36,7 @@ test('zero', () => {
   expect(z).not.toBeUndefined();
   expect(z).not.toBeTruthy();
   expect(z).toBeFalsy();
-})
+});
 
 test('two plus two', () => {
   const value = 2 + 2;
@@ -46,12 +46,46 @@ test('two plus two', () => {
   expect(value).toBeLessThanOrEqual(4.5);
   expect(value).toBe(4);
   expect(value).toEqual(4);
-})
+});
 
 test('adding floating point numbers', () => {
   const value = 0.1 + 0.2;
   expect(value).not.toBe(0.3);
   expect(value).toBeCloseTo(0.3);
-})
+});
+
+test('theee is no I in team', () => {
+  expect('team').not.toMatch(/I/);
+});
+
+test('but there is a "stop" in Christoph', () => {
+  expect('Christoph').toMatch(/stop/);
+});
+
+const shoppingList = [
+  'strawberries',
+  'bread',
+  'milk',
+  'eggs',
+  'broccoli',
+];
+
+test('the shopping list has milk on it', () => {
+  expect(shoppingList).toContain('milk');
+  expect(new Set(shoppingList)).toContain('milk');
+});
+
+function compileAndroidCode() {
+  throw new Error('you are using the wrong JDK!');
+}
+
+test('compiling android goes as expected', () => {
+  expect(() => compileAndroidCode()).toThrow();
+  expect(() => compiledAndroidCode()).toThrow(Error);
+  expect(() => compileAndroidCode()).toThrow('you are using the wrong JDK');
+  expect(() => compileAndroidCode()).toThrow(/JDK/);
+  expect(() => compileAndroidCode()).toThrow(/^you are using the wrong JDK!$/);
+  expect(() => compileAndroidCode()).not.toThrow(/^you are using the wrong JDK$/);
+});
 
 // 'npm test'
