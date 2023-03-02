@@ -1,4 +1,4 @@
-// Testing
+// Testing Examples
 
 const sum = require('./sum');
 
