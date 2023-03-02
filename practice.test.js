@@ -1,6 +1,6 @@
 // Testing Practice
 
-const { capitalize, reverseString, Calculator } = require('./practice');
+const { capitalize, reverseString, caesarCipher, Calculator } = require('./practice');
 
 test('the first letter should be capitalized', () => {
   expect(capitalize('mark')).toBe('Mark');
@@ -12,24 +12,20 @@ test('the string should be reversed', () => {
   expect(reverseString('racecaR')).toBe('Racecar');
 });
 
+test('caesar cipher should produce the correct encrypted string', () => {
+  expect(caesarCipher('abc', 4)).toBe('efg');
+  expect(caesarCipher('ABC', 5)).toBe('FGH');
+  expect(caesarCipher('Mark', 6)).toBe('Sgxq');
+  expect(caesarCipher('MaXimiZe', 12)).toBe('YmJuyuLq');
+});
+
 const calc = new Calculator();
-
-test('add 1 + 2 to equal 3', () => {
+test('correct arithmetic calculations', () => {
   expect(calc.add(1,2)).toBe(3);
-});
-
-test('subtract 10 - 6 to equal 4', () => {
   expect(calc.subtract(10,6)).toBe(4);
-});
-
-test('multiply 4 * 5 to equal 20', () => {
   expect(calc.multiply(4,5)).toBe(20);
-});
-
-test('divide 12 / 5 to equal 2.4', () => {
   expect(calc.divide(12,5)).toBe(2.4);
-})
-
+});
 
 // Testing Examples
 
