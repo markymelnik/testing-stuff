@@ -32,6 +32,34 @@ const caesarCipher = (str, shift) => {
   return encryptedStr;
 }
 
+const analyzeArr = (arr) => {
+
+  const sum = arr.reduce((prev, curr) => {
+    return curr + prev;
+  });
+
+  const average = sum / arr.length;
+
+  const min = arr.reduce((prev, curr) => {
+    return Math.min(prev, curr);
+  });
+
+  const max = arr.reduce((prev, curr) => {
+    return Math.max(prev, curr);
+  });
+
+  const length = arr.length;
+
+  const analyzedArr = {
+    average: average,
+    min: min,
+    max: max,
+    length: length
+  }
+
+  return analyzedArr;
+}
+
 
 class Calculator {
 
@@ -59,5 +87,6 @@ module.exports = {
   capitalize,
   reverseString,
   caesarCipher,
+  analyzeArr,
   Calculator
 }

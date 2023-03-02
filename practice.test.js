@@ -1,6 +1,6 @@
 // Testing Practice
 
-const { capitalize, reverseString, caesarCipher, Calculator } = require('./practice');
+const { capitalize, reverseString, caesarCipher, analyzeArr, Calculator } = require('./practice');
 
 test('the first letter should be capitalized', () => {
   expect(capitalize('mark')).toBe('Mark');
@@ -18,6 +18,12 @@ test('caesar cipher should produce the correct encrypted string', () => {
   expect(caesarCipher('Mark', 6)).toBe('Sgxq');
   expect(caesarCipher('MaXimiZe', 12)).toBe('YmJuyuLq');
 });
+
+const object = analyzeArr([1,8,3,4,2,6]);
+test('the correct average, min, max, and length values of the array', () => {
+  expect(analyzeArr([1,8,3,4,2,6])).toStrictEqual({"average": 4, "length": 6, "max": 8, "min": 1});
+  expect(object == {"average": 4, "length": 6, "max": 8, "min": 1});
+})
 
 const calc = new Calculator();
 test('correct arithmetic calculations', () => {
