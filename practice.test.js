@@ -1,6 +1,6 @@
 // Testing Practice
 
-const { capitalize, reverseString, caesarCipher, analyzeArr, Calculator } = require('./practice');
+const { capitalize, reverseString, caesarCipher, analyzeArr, Calculator, forEach } = require('./practice');
 
 test('the first letter should be capitalized', () => {
   expect(capitalize('mark')).toBe('Mark');
@@ -31,6 +31,18 @@ test('correct arithmetic calculations', () => {
   expect(calc.subtract(10,6)).toBe(4);
   expect(calc.multiply(4,5)).toBe(20);
   expect(calc.divide(12,5)).toBe(2.4);
+});
+
+// Mock Function
+
+const mockCallback = jest.fn(x => 42 + x);
+
+test('forEach mock function', () => {
+  forEach([0, 1], mockCallback);
+  expect(mockCallback.mock.calls).toHaveLength(2);
+  expect(mockCallback.mock.calls[0][0]).toBe(0);
+  expect(mockCallback.mock.calls[1][0]).toBe(1);
+  expect(mockCallback.mock.results[0].value).toBe(42);
 });
 
 // Testing Examples
